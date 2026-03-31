@@ -15,7 +15,9 @@ To build and evaluate a deep learning–based image classification system using 
 
 ## Neural Network Model
 
-<img width="1100" height="447" alt="image" src="https://github.com/user-attachments/assets/03c0896a-3e2f-4d1c-bd0b-ffe554850aa0" />
+![alt text](<nn (3).svg>)
+
+![alt text](image-6.png)
 
 
 
