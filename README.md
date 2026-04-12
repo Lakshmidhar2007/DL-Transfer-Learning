@@ -88,6 +88,16 @@ def train_model(model, train_loader,test_loader,num_epochs=10):
             optimizer.step()
             running_loss += loss.item()
         train_losses.append(running_loss/len(train_loader))
+        model.eval()
+        val_loss = 0.0
+        with torch.no_grad():
+          for images,labels in test_loader:
+            images, labels = images.to(device), labels.to(device)
+            outputs = model(images)
+            loss = criterion(outputs, labels.unsqueeze(1).float())
+            val_loss += loss.item()
+        val_losses.append(val_loss/len(test_loader))
+        model.train()
 
         print(f'Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_losses[-1]:.4f}, Validation Loss: {val_losses[-1]:.4f}')
 
